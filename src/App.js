@@ -5,7 +5,7 @@ import store from './component/redux/store'
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="app">
         <PizzaBox />
       </div>
     </Provider>
