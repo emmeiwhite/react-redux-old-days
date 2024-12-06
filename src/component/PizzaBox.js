@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 function PizzaBox() {
   const pizzaBase = useSelector(state => state.pizza.pizzaBase)
   const dispatch = useDispatch()
+
   return (
     <div>
       <h1>Total Pizza bases: {pizzaBase}</h1>
