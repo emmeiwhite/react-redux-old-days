@@ -3,7 +3,7 @@ import { ORDER_PIZZA } from './PizzaTypes'
 
 // state related to pizzas
 const initialState = {
-  pizzaBase: 100
+  pizzaBase: 70
 }
 
 export const pizzaReducer = (state = initialState, action) => {

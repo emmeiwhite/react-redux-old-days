@@ -1,12 +1,19 @@
 import { orderPizza } from './redux/index.js'
+import { connect } from 'react-redux'
 
 function PizzaBox(props) {
+  console.log('******* the mapped props **********')
   console.log(props)
   return (
     <div>
-      <h1>Total Pizza bases: 100</h1>
+      <h1>Total Pizza bases: {props.pizzaBase}</h1>
       <p>Enjoy the delight of real Pizza</p>
-      <button className="btn">Order Now</button>
+      <button
+        className="btn"
+        onClick={props.orderPizza}
+      >
+        Order Now
+      </button>
     </div>
   )
 }
@@ -27,4 +34,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default PizzaBox
+export default connect(mapStateToProps, mapDispatchToProps)(PizzaBox)
