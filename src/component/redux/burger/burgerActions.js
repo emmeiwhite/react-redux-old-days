@@ -1,6 +1,6 @@
 import { ORDER_BURGER } from './burgerTypes'
 
-export function orderBurger() {
+export const orderBurger = () => {
   return {
     type: ORDER_BURGER
   }

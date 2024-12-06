@@ -14,5 +14,5 @@ export const burgerReducer = (state = initialState, action) => {
     }
   }
 
-  return
+  return state
 }

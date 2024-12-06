@@ -2,7 +2,7 @@ import { orderPizza } from './redux/index.js'
 import { useSelector, useDispatch } from 'react-redux'
 
 function PizzaBox() {
-  const pizzaBase = useSelector(state => state.pizzaBase)
+  const pizzaBase = useSelector(state => state.pizza.pizzaBase)
   const dispatch = useDispatch()
   return (
     <div>
