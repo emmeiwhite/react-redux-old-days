@@ -1,7 +1,7 @@
 import { BORROW_BOOK } from './actionTypes'
 
 const initialState = {
-  totalBooks: 123
+  totalBooks: 120
 }
 
 const bookReducer = (state = initialState, action) => {

@@ -5,13 +5,16 @@ import { useDispatch, useSelector } from 'react-redux'
 const BookContainer = props => {
   // Get state value using useSelector
   const booksCount = useSelector(state => state.totalBooks)
-
   // Get dispatch function
   const dispatch = useDispatch()
   return (
     <div>
       <h1>Current Book Count: {booksCount} </h1>
-      <button onClick={() => dispatch(borrow_book())}>Borrow Book</button>
+      <button
+        onClick={() => dispatch(borrow_book())}
+        className="btn">
+        Borrow Book
+      </button>
     </div>
   )
 }
