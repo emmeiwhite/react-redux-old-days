@@ -1,7 +1,10 @@
+import { store } from './redux-library/store'
+
+import BookContainer from './components/BookContainer'
 function App() {
   return (
     <div className="app">
-      <h1>React-Redux no stopping</h1>
+      <BookContainer />
     </div>
   )
 }
