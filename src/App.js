@@ -1,18 +1,8 @@
-import PizzaBox from './component/PizzaBox'
-import BurgerBox from './component/BurgerBox'
-
-import { Provider } from 'react-redux'
-import store from './component/redux/store'
-
-console.log(store)
 function App() {
   return (
-    <Provider store={store}>
-      <div className="app">
-        <PizzaBox />
-        <BurgerBox />
-      </div>
-    </Provider>
+    <div className="app">
+      <h1>React-Redux no stopping</h1>
+    </div>
   )
 }
 
