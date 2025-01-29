@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const BookContainer = props => {
   // Get state value using useSelector
-  const booksCount = useSelector(state => state.totalBooks)
+  const booksCount = useSelector(state => state.books.totalBooks)
   // Get dispatch function
   const dispatch = useDispatch()
   return (
