@@ -11,7 +11,7 @@ function App() {
     <div className="container m-auto px-4">
       <Provider store={store}>
         {/* <Pizza /> */}
-        <CustomerForm />
+        {/* <CustomerForm /> */}
 
         {/* <BookContainer /> */}
         <Products />

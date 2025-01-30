@@ -12,31 +12,30 @@ const CustomerForm = () => {
 
     if (totalPizzas - pizzaCount < 0) {
       alert('Enter amount of pizza as per availability')
+      return
     }
     dispatch(order_pizza(pizzaCount))
     // As soon as the user submits number, we need to take the number to the reducer
     // And to take the number to the reducer, we need action with payload
   }
   return (
-    <article className="p-6 bg-blue-500 mt-12 relative">
-      <div className="absolute top-0 right-0 p-2 bg-green-600 text-white">
+    <article className="p-6  mt-12 relative">
+      <div className="absolute top-0 right-0 p-2 bg-blue-200 ">
         Available Pizzas: <span className="font-bold">{totalPizzas}</span>
       </div>
-      <h2 className="text-white text-2xl font-semibold mb-4">
-        How many pizza's you want to order?
-      </h2>
+      <h2 className="text-2xl font-semibold mb-4">How many pizza's you want to order?</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="number"
           onChange={e => setPizzaCount(e.target.value)}
           placeholder="Enter number of pizzas"
           value={pizzaCount}
-          className="w-full p-2 "
+          className="w-full p-2 border"
           min={1}
         />
         <button
           type="submit"
-          className="bg-primary block mt-4 text-white px-4 py-2 rounded-md bg-blue-900 hover:bg-blue-700 transition duration-300">
+          className="bg-primary block mt-4 text-white px-4 py-2 rounded-md bg-blue-500 hover:bg-blue-600 transition duration-300">
           Submit
         </button>
       </form>
