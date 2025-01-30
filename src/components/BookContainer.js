@@ -8,11 +8,11 @@ const BookContainer = props => {
   // Get dispatch function
   const dispatch = useDispatch()
   return (
-    <div>
-      <h1>Current Book Count: {booksCount} </h1>
+    <div className="p-12 text-center">
+      <h1 className="text-3xl font-bold text-gray-800">Current Book Count: {booksCount} </h1>
       <button
         onClick={() => dispatch(borrow_book())}
-        className="px-6 py-2 font-semibold text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 transition duration-300">
+        className="px-6 py-2 font-semibold text-white rounded-md bg-green-500 hover:bg-green-700  transition duration-200">
         Borrow Book
       </button>
     </div>
