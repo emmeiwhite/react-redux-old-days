@@ -1,7 +1,8 @@
 import { ORDER_PIZZA } from './actionTypes'
 
-export const order_pizza = () => {
+export const order_pizza = pizzaOrder => {
   return {
-    type: ORDER_PIZZA
+    type: ORDER_PIZZA,
+    payload: pizzaOrder
   }
 }

@@ -3,13 +3,16 @@ import { Provider } from 'react-redux'
 
 import BookContainer from './components/BookContainer'
 import Pizza from './components/Pizza'
+import CustomerForm from './components/CustomerForm'
 
 function App() {
   return (
-    <div className="app">
+    <div className="container m-auto px-4">
       <Provider store={store}>
+        {/* <Pizza /> */}
+        <CustomerForm />
+
         <BookContainer />
-        <Pizza />
       </Provider>
     </div>
   )
