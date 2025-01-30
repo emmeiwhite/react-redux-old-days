@@ -2,7 +2,7 @@ import { FETCH_ERROR, FETCH_REQUEST, FETCH_SUCCESS } from './actionTypes'
 
 const initialState = {
   loading: false,
-  error: false,
+  error: '',
   products: []
 }
 
@@ -16,7 +16,7 @@ const productsReducer = (state = initialState, action) => {
   }
 
   if (action.type === FETCH_ERROR) {
-    return { ...state, loading: false, error: true }
+    return { ...state, loading: false, error: action.payload }
   }
 
   return state

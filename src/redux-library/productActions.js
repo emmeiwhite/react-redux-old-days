@@ -22,9 +22,8 @@ export const fetch_error = error => {
   }
 }
 
-// redux-thunk middleware to perform async requests
-
-const fetchProducts = () => {
+// redux-thunk middleware will use this HOF function to perform async requests
+export const fetchProducts = () => {
   return dispatch => {
     // Action send to reducer
     dispatch(fetch_request())

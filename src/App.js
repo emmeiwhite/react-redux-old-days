@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import BookContainer from './components/BookContainer'
 import Pizza from './components/Pizza'
 import CustomerForm from './components/CustomerForm'
+import Products from './components/Products'
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <CustomerForm />
 
         {/* <BookContainer /> */}
+        <Products />
       </Provider>
     </div>
   )
