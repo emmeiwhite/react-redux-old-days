@@ -12,7 +12,7 @@ const BookContainer = props => {
       <h1>Current Book Count: {booksCount} </h1>
       <button
         onClick={() => dispatch(borrow_book())}
-        className="btn">
+        className="px-6 py-2 font-semibold text-white rounded-md bg-gradient-to-r from-green-400 to-blue-500 hover:from-green-500 hover:to-blue-600 transition duration-300">
         Borrow Book
       </button>
     </div>

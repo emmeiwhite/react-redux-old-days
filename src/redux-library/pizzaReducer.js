@@ -1,7 +1,7 @@
 import { ORDER_PIZZA } from './actionTypes'
 
 const initialState = {
-  pizzaBase: 90
+  pizzaBase: 100
 }
 
 const pizzaReducer = (state = initialState, action) => {
