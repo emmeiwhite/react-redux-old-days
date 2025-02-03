@@ -16,3 +16,21 @@ test('it shows two inputs & a button', () => {
   expect(inputs).toHaveLength(2)
   expect(button).toBeInTheDocument()
 })
+
+test('it calls onUserSubmit when the form is submitted', () => {
+  // Render the Component
+  render(<Login />)
+
+  // Manipulate or find an element
+  const [userName, userEmail] = screen.getAllByRole('textbox')
+  const button = screen.getByRole('button')
+
+  // Simulate the input typing [2 steps: Focus(click() + typing(keyboard))]
+  // 1) Simulating userName input typing
+  userEvent.click(userName)
+  userEvent.keyboard('rawdha')
+
+  // 2) Simulating userEmail input typing
+  userEvent.click(userEmail)
+  userEvent.keyboard('rawdha@gmail.com')
+})
