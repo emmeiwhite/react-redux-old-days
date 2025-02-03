@@ -7,6 +7,7 @@ import { Provider } from 'react-redux'
 // import Products from './components/Products'
 import LoginForm from './testing-revisit/Login'
 import { useState } from 'react'
+import ToggleUI from './custom_hooks/toggle/ToggleUI'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -38,6 +39,8 @@ function App() {
           )
         })}
       </Provider>
+
+      <ToggleUI />
     </div>
   )
 }
