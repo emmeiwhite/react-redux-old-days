@@ -2,7 +2,7 @@ import { render, screen } from '@testing-library/react'
 
 import '@testing-library/jest-dom' // Ensure this import is present
 import App from './App'
-/*
+
 test('renders the h1 element', function () {
   // 1. render the component to test
   render(<App />)
@@ -13,4 +13,3 @@ test('renders the h1 element', function () {
   // 3. Assertion: To check heading exists in the DOM
   expect(heading).toBeInTheDocument()
 })
-*/
