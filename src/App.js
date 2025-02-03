@@ -26,6 +26,8 @@ function App() {
 
         <LoginForm onUserSubmit={onUserSubmit} />
 
+        <h2>LIST OF USERS:</h2>
+
         {users.map(user => {
           return (
             <p

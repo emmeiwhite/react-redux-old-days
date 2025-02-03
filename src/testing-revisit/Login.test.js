@@ -20,10 +20,12 @@ test('it shows two inputs & a button', () => {
 test('it calls onUserSubmit when the form is submitted', () => {
   // Render the Component
   const mock = jest.fn()
-  render(<Login />)
+  render(<Login onUserSubmit={mock} />)
 
   // Manipulate or find an element
-  const [userName, userEmail] = screen.getAllByRole('textbox')
+  //   const [userName, userEmail] = screen.getAllByRole('textbox')
+  const userEmail = screen.getByLabelText(/Gmail:/i)
+  const userName = screen.getByLabelText(/Name:/i)
   const button = screen.getByRole('button')
 
   // Simulate the input typing [2 steps: Focus(click() + typing(keyboard))]
@@ -38,4 +40,9 @@ test('it calls onUserSubmit when the form is submitted', () => {
   // Simulating the button click
   userEvent.click(button)
   //Assertion to make sure the clicking on the button calls onUserSubmit with email / name
+  expect(mock).toHaveBeenCalled() // to have been called at least once
+  expect(mock).toHaveBeenCalledWith({
+    name: 'rawdha',
+    gmail: 'rawdha@gmail.com'
+  })
 })

@@ -19,7 +19,7 @@ export default function LoginForm({ onUserSubmit }) {
     <form
       onSubmit={handleSubmit}
       className="mb-8 p-5">
-      <label>
+      <label htmlFor="username">
         Name:
         <input
           type="text"
@@ -27,11 +27,12 @@ export default function LoginForm({ onUserSubmit }) {
           value={formData.name}
           onChange={handleChange}
           className="border p-1 ml-1"
+          id="username"
         />
       </label>
       <br />
       <br />
-      <label>
+      <label htmlFor="useremail">
         Gmail:
         <input
           type="email"
@@ -39,6 +40,7 @@ export default function LoginForm({ onUserSubmit }) {
           value={formData.gmail}
           onChange={handleChange}
           className="border p-1 ml-1"
+          id="useremail"
         />
       </label>
       <br />
