@@ -5,6 +5,7 @@ import BookContainer from './components/BookContainer'
 import Pizza from './components/Pizza'
 import CustomerForm from './components/CustomerForm'
 import Products from './components/Products'
+import ToggleUI from './custom_hooks/toggle/ToggleUI'
 
 function App() {
   return (
@@ -14,7 +15,9 @@ function App() {
         {/* <CustomerForm /> */}
 
         {/* <BookContainer /> */}
-        <Products />
+        {/* <Products /> */}
+
+        <ToggleUI />
       </Provider>
     </div>
   )
