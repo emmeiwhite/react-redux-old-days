@@ -19,6 +19,7 @@ test('it shows two inputs & a button', () => {
 
 test('it calls onUserSubmit when the form is submitted', () => {
   // Render the Component
+  const mock = jest.fn()
   render(<Login />)
 
   // Manipulate or find an element
@@ -33,4 +34,8 @@ test('it calls onUserSubmit when the form is submitted', () => {
   // 2) Simulating userEmail input typing
   userEvent.click(userEmail)
   userEvent.keyboard('rawdha@gmail.com')
+
+  // Simulating the button click
+  userEvent.click(button)
+  //Assertion to make sure the clicking on the button calls onUserSubmit with email / name
 })
