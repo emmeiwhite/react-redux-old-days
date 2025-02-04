@@ -13,12 +13,23 @@ export default function Question({ currentQuestion, index, length }) {
       <ul>
         {options?.map(option => {
           return (
-            <li className="rounded-full px-5 py-2 bg-blue-400 text-white mb-8 font-semibold">
+            <li
+              className="rounded-full px-5 py-2 bg-blue-500 text-white mb-8 transition-all duration-500 ease-in-out font-semibold hover:bg-blue-400 hover:translate-x-8 cursor-pointer"
+              key={option}>
               {option}
             </li>
           )
         })}
       </ul>
+
+      <div className="flex justify-between mt-20">
+        <button className="px-8 py-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 transition">
+          07:12
+        </button>
+        <button className="px-8 py-2 bg-orange-500 rounded-full text-white hover:bg-orange-600 transition">
+          Next
+        </button>
+      </div>
     </div>
   )
 }
