@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import LoginForm from './testing-revisit/Login'
 import { useState } from 'react'
 import ToggleUI from './custom_hooks/toggle/ToggleUI'
+import QuizApp from './quiz-app/QuizApp'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -17,14 +18,8 @@ function App() {
   }
   return (
     <div className="container m-auto px-4">
-      <h1>Testing is Fun</h1>
-      <Provider store={store}>
-        {/* <Pizza /> */}
-        {/* <CustomerForm /> */}
-
-        {/* <BookContainer /> */}
-        {/* <Products /> */}
-
+      {/* <h1>Testing is Fun</h1> */}
+      {/* <Provider store={store}>
         <LoginForm onUserSubmit={onUserSubmit} />
 
         <h2>LIST OF USERS:</h2>
@@ -38,9 +33,8 @@ function App() {
             </p>
           )
         })}
-      </Provider>
-
-      <ToggleUI />
+      </Provider> */}
+      <QuizApp />
     </div>
   )
 }
