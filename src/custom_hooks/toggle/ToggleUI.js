@@ -4,6 +4,10 @@ import { useToggle } from './useToggle'
 let initialState = 0
 function reducer(state, action) {
   if (action.type === 'set_count') return action.payload
+  if (action.type === 'increase') return state + action.payload
+  if (action.type === 'decrease') return state - action.payload
+
+  return state
 }
 export default function ToggleUI() {
   const { show, handleClick } = useToggle()
@@ -16,12 +20,14 @@ export default function ToggleUI() {
     dispatch({ type: 'set_count', payload: Number(e.target.value) })
   }
 
-  function handleDecrease() {
+  function handleIncrease() {
     // setCount(c => c - progress)
+    dispatch({ type: 'increase', payload: progress || 1 })
   }
 
-  function handleIncrease() {
+  function handleDecrease() {
     // setCount(c => c + progress)
+    dispatch({ type: 'decrease', payload: progress || 1 })
   }
 
   let date = new Date()
