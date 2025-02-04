@@ -14,7 +14,7 @@ export default function Question({ currentQuestion, index, length }) {
         {options?.map(option => {
           return (
             <li
-              className="rounded-full px-5 py-2 bg-blue-500 text-white mb-8 transition-all duration-500 ease-in-out font-semibold hover:bg-blue-400 hover:translate-x-8 cursor-pointer"
+              className="rounded-full px-5 py-2 bg-blue-500 text-white mb-8 transition-all duration-500 ease-in-out font-semibold hover:bg-blue-400 hover:translate-x-8 hover:border-2 hover:border-black cursor-pointer"
               key={option}>
               {option}
             </li>
