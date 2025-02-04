@@ -1,21 +1,27 @@
-import { useState } from 'react'
+import { useReducer, useState } from 'react'
 import { useToggle } from './useToggle'
 
+let initialState = 0
+function reducer(state, action) {
+  if (action.type === 'set_count') return action.payload
+}
 export default function ToggleUI() {
   const { show, handleClick } = useToggle()
   const [progress, setProgress] = useState(1)
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
+  const [count, dispatch] = useReducer(reducer, initialState)
 
   function handleCount(e) {
-    setCount(Number(e.target.value))
+    // setCount(Number(e.target.value))
+    dispatch({ type: 'set_count', payload: Number(e.target.value) })
   }
 
   function handleDecrease() {
-    setCount(c => c - progress)
+    // setCount(c => c - progress)
   }
 
   function handleIncrease() {
-    setCount(c => c + progress)
+    // setCount(c => c + progress)
   }
 
   let date = new Date()
@@ -49,7 +55,7 @@ export default function ToggleUI() {
           </button>
           <input
             type="number"
-            value={count}
+            value={count || ''}
             onChange={handleCount}
             className="border inline-block mx-3"
           />
