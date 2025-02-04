@@ -9,6 +9,7 @@ import LoginForm from './testing-revisit/Login'
 import { useState } from 'react'
 import ToggleUI from './custom_hooks/toggle/ToggleUI'
 import QuizApp from './quiz-app/QuizApp'
+import QuizMain from './quiz-app/QuizMain'
 
 function App() {
   const [users, setUsers] = useState([])
@@ -35,6 +36,10 @@ function App() {
         })}
       </Provider> */}
       <QuizApp />
+      <QuizMain>
+        <p>15</p>
+        <p>Questions</p>
+      </QuizMain>
     </div>
   )
 }
