@@ -28,3 +28,45 @@ code {
   font-weight: 500;
   cursor: pointer;
 }
+
+/* Loader */
+
+.loader {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.loader .circle {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background-color: white;
+  border: 1px solid rgba(255, 0, 255, 0.8);
+  animation-name: jump;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  box-shadow: 0 0 0.5rem rgba(0, 255, 0, 0.8);
+}
+
+.circle__one {
+  animation-duration: 0.6s;
+}
+
+.circle__two {
+  animation-duration: 0.75s;
+}
+
+.circle__three {
+  animation-duration: 0.9s;
+}
+
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
