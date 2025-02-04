@@ -9,14 +9,13 @@ import LoginForm from './testing-revisit/Login'
 import { useState } from 'react'
 import ToggleUI from './custom_hooks/toggle/ToggleUI'
 import QuizApp from './quiz-app/QuizApp'
-import QuizMain from './quiz-app/QuizMain'
 
 function App() {
-  const [users, setUsers] = useState([])
+  // const [users, setUsers] = useState([])
 
-  function onUserSubmit(user) {
-    setUsers([...users, user])
-  }
+  // function onUserSubmit(user) {
+  //   setUsers([...users, user])
+  // }
   return (
     <div className="container m-auto px-4">
       {/* <h1>Testing is Fun</h1> */}
@@ -36,10 +35,6 @@ function App() {
         })}
       </Provider> */}
       <QuizApp />
-      <QuizMain>
-        <p>15</p>
-        <p>Questions</p>
-      </QuizMain>
     </div>
   )
 }

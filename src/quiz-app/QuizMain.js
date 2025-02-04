@@ -1,4 +1,4 @@
 const QuizMain = ({ children }) => {
-  return <div>{children}</div>
+  return <main className="sm:px-16 mt-12">{children}</main>
 }
 export default QuizMain
