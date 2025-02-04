@@ -5,6 +5,7 @@ import axios from 'axios'
 import Loader from './Loader'
 import Error from './Error'
 import StartingScreen from './StartingScreen'
+import Question from './Question'
 
 const initialState = {
   questions: [],
@@ -29,6 +30,13 @@ function reducer(state, action) {
     }
   }
 
+  if (action.type === 'start') {
+    return {
+      ...state,
+      status: 'active'
+    }
+  }
+
   throw new Error('No Action Matched ')
 }
 
@@ -38,6 +46,7 @@ const QuizApp = () => {
   const [{ status, questions }, dispatch] = useReducer(reducer, initialState)
 
   const totalQuestions = questions.length
+
   useEffect(() => {
     async function fetchData() {
       try {
@@ -60,7 +69,13 @@ const QuizApp = () => {
 
         {status === 'loading' && <Loader />}
         {status === 'error' && <Error />}
-        {status === 'ready' && <StartingScreen totalQuestions={totalQuestions} />}
+        {status === 'ready' && (
+          <StartingScreen
+            totalQuestions={totalQuestions}
+            dispatch={dispatch}
+          />
+        )}
+        {status === 'active' && <Question />}
       </QuizMain>
     </div>
   )
