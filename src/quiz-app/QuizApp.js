@@ -11,7 +11,8 @@ const initialState = {
   questions: [],
 
   // 'loading','error','ready','active','finished'
-  status: 'loading'
+  status: 'loading',
+  currentIndex: 0
 }
 
 function reducer(state, action) {
@@ -43,7 +44,7 @@ function reducer(state, action) {
 const url = 'http://localhost:9000/questions'
 
 const QuizApp = () => {
-  const [{ status, questions }, dispatch] = useReducer(reducer, initialState)
+  const [{ status, questions, currentIndex }, dispatch] = useReducer(reducer, initialState)
 
   const totalQuestions = questions.length
 
@@ -75,7 +76,13 @@ const QuizApp = () => {
             dispatch={dispatch}
           />
         )}
-        {status === 'active' && <Question />}
+        {status === 'active' && (
+          <Question
+            currentQuestion={questions[currentIndex]}
+            index={currentIndex}
+            length={questions.length}
+          />
+        )}
       </QuizMain>
     </div>
   )
