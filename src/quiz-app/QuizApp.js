@@ -4,6 +4,7 @@ import { useEffect, useReducer } from 'react'
 import axios from 'axios'
 import Loader from './Loader'
 import Error from './Error'
+import StartingScreen from './StartingScreen'
 
 const initialState = {
   questions: [],
@@ -17,7 +18,7 @@ function reducer(state, action) {
     return {
       ...state,
       questions: action.payload,
-      status: 'loading'
+      status: 'ready'
     }
   }
 
@@ -36,6 +37,7 @@ const url = 'http://localhost:9000/questions'
 const QuizApp = () => {
   const [{ status, questions }, dispatch] = useReducer(reducer, initialState)
 
+  const totalQuestions = questions.length
   useEffect(() => {
     async function fetchData() {
       try {
@@ -58,6 +60,7 @@ const QuizApp = () => {
 
         {status === 'loading' && <Loader />}
         {status === 'error' && <Error />}
+        {status === 'ready' && <StartingScreen totalQuestions={totalQuestions} />}
       </QuizMain>
     </div>
   )

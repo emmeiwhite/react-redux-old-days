@@ -1,7 +1,7 @@
 import logo from './../assets/quiz-logo.png'
 const QuizHeader = () => {
   return (
-    <div className="sm:flex gap-8 items-center">
+    <div className="sm:flex gap-8 items-center justify-center">
       <img
         src={logo}
         className="h-20 w-auto object-cover"
