@@ -1,4 +1,5 @@
 export default function StartingScreen({ totalQuestions, dispatch }) {
+  console.log(`Total Questions: ${totalQuestions}`)
   return (
     <div className="text-center">
       <h2 className="text-3xl">Welcome to the React Quiz!</h2>

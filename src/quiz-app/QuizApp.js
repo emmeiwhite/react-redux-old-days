@@ -9,7 +9,6 @@ import Question from './Question'
 
 const initialState = {
   questions: [],
-
   // 'loading','error','ready','active','finished'
   status: 'loading',
   currentIndex: 0
@@ -38,6 +37,14 @@ function reducer(state, action) {
     }
   }
 
+  if (action.type === 'next_question') {
+    if (action.payload === state.questions.length) return { ...state, currentIndex: 0 }
+    return {
+      ...state,
+      currentIndex: action.payload
+    }
+  }
+
   throw new Error('No Action Matched ')
 }
 
@@ -46,13 +53,14 @@ const url = 'http://localhost:9000/questions'
 const QuizApp = () => {
   const [{ status, questions, currentIndex }, dispatch] = useReducer(reducer, initialState)
 
+  console.log(questions)
   const totalQuestions = questions.length
 
   useEffect(() => {
     async function fetchData() {
       try {
         const { data } = await axios(url)
-        console.log(data)
+
         dispatch({ type: 'data_received', payload: data })
       } catch (error) {
         dispatch({ type: 'data_failed' })
@@ -81,6 +89,7 @@ const QuizApp = () => {
             currentQuestion={questions[currentIndex]}
             index={currentIndex}
             length={questions.length}
+            dispatch={dispatch}
           />
         )}
       </QuizMain>

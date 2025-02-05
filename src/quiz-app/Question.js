@@ -1,4 +1,4 @@
-export default function Question({ currentQuestion, index, length }) {
+export default function Question({ currentQuestion, index, length, dispatch }) {
   console.log(currentQuestion)
   const { question, correctOption, options, points, id } = currentQuestion
   return (
@@ -26,7 +26,9 @@ export default function Question({ currentQuestion, index, length }) {
         <button className="px-8 py-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 transition">
           07:12
         </button>
-        <button className="px-8 py-2 bg-orange-500 rounded-full text-white hover:bg-orange-600 transition">
+        <button
+          className="px-8 py-2 bg-orange-500 rounded-full text-white hover:bg-orange-600 transition"
+          onClick={() => dispatch({ type: 'next_question', payload: index + 1 })}>
           Next
         </button>
       </div>
