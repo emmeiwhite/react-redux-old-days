@@ -11,7 +11,8 @@ const initialState = {
   questions: [],
   // 'loading','error','ready','active','finished'
   status: 'loading',
-  currentIndex: 0
+  currentIndex: 0,
+  score: 0
 }
 
 function reducer(state, action) {
@@ -55,16 +56,27 @@ function reducer(state, action) {
     }
   }
 
+  if (action.type === 'correct_answer') {
+    return {
+      ...state,
+      score: state.score + action.payload
+    }
+  }
+
   throw new Error('No Action Matched ')
 }
 
 const url = 'http://localhost:9000/questions'
 
 const QuizApp = () => {
-  const [{ status, questions, currentIndex }, dispatch] = useReducer(reducer, initialState)
+  const [{ status, questions, currentIndex, score }, dispatch] = useReducer(reducer, initialState)
 
-  console.log(questions)
   const totalQuestions = questions.length
+
+  // Let's create derived states and pass those as props:
+  const totalScore = questions.reduce((acc, curr) => {
+    return (acc += curr.points)
+  }, 0)
 
   useEffect(() => {
     async function fetchData() {
@@ -100,6 +112,8 @@ const QuizApp = () => {
             index={currentIndex}
             length={questions.length}
             dispatch={dispatch}
+            totalScore={totalScore}
+            score={score}
           />
         )}
       </QuizMain>

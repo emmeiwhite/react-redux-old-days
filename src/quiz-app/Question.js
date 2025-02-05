@@ -1,4 +1,6 @@
-export default function Question({ currentQuestion, index, length, dispatch }) {
+import Options from './Options'
+
+export default function Question({ currentQuestion, index, length, totalScore, dispatch, score }) {
   console.log(currentQuestion)
   const { question, correctOption, options, points, id } = currentQuestion
   return (
@@ -8,19 +10,15 @@ export default function Question({ currentQuestion, index, length, dispatch }) {
         <p>
           Question {index + 1} / {length}
         </p>
-        <p>0 / 280 points</p>
+        <p>
+          {score} / {totalScore} points
+        </p>
       </div>
-      <ul>
-        {options?.map(option => {
-          return (
-            <li
-              className="rounded-full px-5 py-2 bg-blue-500 text-white mb-8 transition-all duration-500 ease-in-out font-semibold hover:bg-blue-400 hover:translate-x-8 hover:border-2 hover:border-black cursor-pointer"
-              key={option}>
-              {option}
-            </li>
-          )
-        })}
-      </ul>
+
+      <Options
+        dispatch={dispatch}
+        currentQuestion={currentQuestion}
+      />
 
       <div className="flex justify-between mt-20">
         <button className="px-8 py-2 bg-blue-500 rounded-full text-white hover:bg-blue-600 transition">
