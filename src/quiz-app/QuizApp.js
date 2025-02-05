@@ -39,6 +39,16 @@ function reducer(state, action) {
 
   if (action.type === 'next_question') {
     if (action.payload === state.questions.length) return { ...state, currentIndex: 0 }
+
+    return {
+      ...state,
+      currentIndex: action.payload
+    }
+  }
+
+  if (action.type === 'prev_question') {
+    if (action.payload === -1) return { ...state, currentIndex: 14 }
+
     return {
       ...state,
       currentIndex: action.payload
