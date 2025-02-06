@@ -1,6 +1,13 @@
 import Options from './Options'
 
-export default function Question({ currentQuestion, index, length, totalScore, dispatch, score }) {
+export default function Question({
+  currentQuestion,
+  index,
+  totalQuestions,
+  totalScore,
+  dispatch,
+  score
+}) {
   console.log(currentQuestion)
   const { question, correctOption, options, points, id } = currentQuestion
   return (
@@ -8,7 +15,7 @@ export default function Question({ currentQuestion, index, length, totalScore, d
       <h3 className="text-2xl font-bold my-8">{question}</h3>
       <div className="flex justify-between mb-10">
         <p>
-          Question {index + 1} / {length}
+          Question {index + 1} / {totalQuestions}
         </p>
         <p>
           {score} / {totalScore} points

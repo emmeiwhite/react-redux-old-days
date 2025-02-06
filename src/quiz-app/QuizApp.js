@@ -56,7 +56,7 @@ function reducer(state, action) {
     }
   }
 
-  if (action.type === 'correct_answer') {
+  if (action.type === 'user_responds') {
     return {
       ...state,
       score: state.score + action.payload
@@ -110,7 +110,7 @@ const QuizApp = () => {
           <Question
             currentQuestion={questions[currentIndex]}
             index={currentIndex}
-            length={questions.length}
+            totalQuestions={totalQuestions}
             dispatch={dispatch}
             totalScore={totalScore}
             score={score}
