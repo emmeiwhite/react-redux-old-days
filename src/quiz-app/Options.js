@@ -1,10 +1,8 @@
-export default function Options({ currentQuestion, dispatch }) {
+export default function Options({ currentQuestion, dispatch, answerSelected }) {
   const { correctOption, options } = currentQuestion
 
   const handleClick = index => {
-    if (index === correctOption) {
-      dispatch({ type: 'user_responds', payload: currentQuestion.points })
-    }
+    dispatch({ type: 'user_answer', payload: index })
   }
   return (
     <article className="flex gap-x-9 flex-wrap">

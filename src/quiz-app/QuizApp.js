@@ -12,7 +12,8 @@ const initialState = {
   // 'loading','error','ready','active','finished'
   status: 'loading',
   currentIndex: 0,
-  score: 0
+  score: 0,
+  answerSelected: null
 }
 
 function reducer(state, action) {
@@ -56,10 +57,15 @@ function reducer(state, action) {
     }
   }
 
-  if (action.type === 'user_responds') {
+  if (action.type === 'user_answer') {
+    // Grab the current Question
+    const currentQuestion = state.questions.at(state.currentIndex)
+
+    let isTrue = currentQuestion.correctOption === action.payload
     return {
       ...state,
-      score: state.score + action.payload
+      answerSelected: action.payload,
+      score: isTrue ? state.score + action.payload : state.score
     }
   }
 
@@ -69,7 +75,10 @@ function reducer(state, action) {
 const url = 'http://localhost:9000/questions'
 
 const QuizApp = () => {
-  const [{ status, questions, currentIndex, score }, dispatch] = useReducer(reducer, initialState)
+  const [{ status, questions, currentIndex, score, answerSelected }, dispatch] = useReducer(
+    reducer,
+    initialState
+  )
 
   const totalQuestions = questions.length
 
@@ -114,6 +123,7 @@ const QuizApp = () => {
             dispatch={dispatch}
             totalScore={totalScore}
             score={score}
+            answerSelected={answerSelected}
           />
         )}
       </QuizMain>

@@ -6,10 +6,11 @@ export default function Question({
   totalQuestions,
   totalScore,
   dispatch,
-  score
+  score,
+  answerSelected
 }) {
   console.log(currentQuestion)
-  const { question, correctOption, options, points, id } = currentQuestion
+  const { question } = currentQuestion
   return (
     <div>
       <h3 className="text-2xl font-bold my-8">{question}</h3>
@@ -25,6 +26,7 @@ export default function Question({
       <Options
         dispatch={dispatch}
         currentQuestion={currentQuestion}
+        answerSelected={answerSelected}
       />
 
       <div className="flex justify-between mt-20">
