@@ -65,7 +65,7 @@ function reducer(state, action) {
     return {
       ...state,
       answerSelected: action.payload,
-      score: isTrue ? state.score + action.payload : state.score
+      score: isTrue ? state.score + currentQuestion.points : state.score
     }
   }
 
