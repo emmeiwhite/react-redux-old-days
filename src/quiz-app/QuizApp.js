@@ -6,6 +6,9 @@ import Loader from './Loader'
 import Error from './Error'
 import StartingScreen from './StartingScreen'
 import Question from './Question'
+import NextButton from './NextButton'
+import Progress from './Progress'
+import FinishedScreen from './FinishedScreen'
 
 const initialState = {
   questions: [],
@@ -40,11 +43,10 @@ function reducer(state, action) {
   }
 
   if (action.type === 'next_question') {
-    if (action.payload === state.questions.length) return { ...state, currentIndex: 0 }
-
     return {
       ...state,
-      currentIndex: action.payload
+      currentIndex: state.currentIndex + 1,
+      answerSelected: null
     }
   }
 
@@ -69,6 +71,21 @@ function reducer(state, action) {
     }
   }
 
+  if (action.type === 'finish_quiz') {
+    return {
+      ...state,
+      status: 'finished'
+    }
+  }
+
+  if (action.type === 'restart') {
+    return {
+      ...initialState,
+      questions: state.questions,
+      status: 'ready'
+    }
+  }
+
   throw new Error('No Action Matched ')
 }
 
@@ -80,10 +97,9 @@ const QuizApp = () => {
     initialState
   )
 
-  const totalQuestions = questions.length
-
   // Let's create derived states and pass those as props:
-  const totalScore = questions.reduce((acc, curr) => {
+  const totalQuestions = questions.length
+  const maxPossibleScore = questions.reduce((acc, curr) => {
     return (acc += curr.points)
   }, 0)
 
@@ -116,14 +132,38 @@ const QuizApp = () => {
           />
         )}
         {status === 'active' && (
-          <Question
-            currentQuestion={questions[currentIndex]}
-            index={currentIndex}
-            totalQuestions={totalQuestions}
-            dispatch={dispatch}
-            totalScore={totalScore}
+          <>
+            <Progress
+              score={score}
+              maxPossibleScore={maxPossibleScore}
+              totalQuestions={totalQuestions}
+              index={currentIndex}
+              answerSelected={answerSelected}
+            />
+            <Question
+              currentQuestion={questions[currentIndex]}
+              index={currentIndex}
+              totalQuestions={totalQuestions}
+              dispatch={dispatch}
+              maxPossibleScore={maxPossibleScore}
+              score={score}
+              answerSelected={answerSelected}
+            />
+            <div className="flex justify-end mt-10">
+              <NextButton
+                dispatch={dispatch}
+                answerSelected={answerSelected}
+                totalQuestions={totalQuestions}
+                currentIndex={currentIndex}
+              />
+            </div>
+          </>
+        )}
+
+        {status === 'finished' && (
+          <FinishedScreen
             score={score}
-            answerSelected={answerSelected}
+            maxPossibleScore={maxPossibleScore}
           />
         )}
       </QuizMain>
